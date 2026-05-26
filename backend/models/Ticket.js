@@ -1,23 +1,37 @@
-const express = require("express");
 const mongoose = require("mongoose");
-const cors = require("cors");
-require("dotenv").config();
 
-const ticketRoutes = require("./routes/ticketRoutes");
+const TicketSchema = new mongoose.Schema({
+    subject: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    description: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    customerEmail: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    priority: {
+        type: String,
+        enum: ["low", "medium", "high", "urgent"],
+        default: "low"
+    },
+    status: {
+        type: String,
+        enum: ["open", "in_progress", "resolved", "closed"],
+        default: "open"
+    },
+    resolvedAt: {
+        type: Date,
+        default: null
+    }
+}, {
+    timestamps: true
+});
 
-const app = express();
-
-app.use(cors());
-app.use(express.json());
-
-app.use("/tickets", ticketRoutes);
-
-mongoose.connect(process.env.MONGO_URI)
-.then(() => {
-    console.log("MongoDB Connected");
-
-    app.listen(process.env.PORT, () => {
-        console.log(`Server running on port ${process.env.PORT}`);
-    });
-})
-.catch((err) => console.log(err));
+module.exports = mongoose.model("Ticket", TicketSchema);

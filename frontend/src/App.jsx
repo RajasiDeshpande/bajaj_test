@@ -6,7 +6,7 @@ import TicketForm from "./components/TicketForm";
 import Filters from "./components/Filters";
 import StatsStrip from "./components/StatsStrip";
 
-const API = "http://localhost:5000/tickets";
+const API = "https://bajaj-test-backend-1r96.onrender.com/tickets";
 
 function App() {
 

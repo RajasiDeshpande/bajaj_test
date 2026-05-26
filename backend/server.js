@@ -12,6 +12,10 @@ app.use(express.json());
 
 app.use("/tickets", ticketRoutes);
 
+app.get("/", (req, res) => {
+    res.json({ status: "running", message: "DeskFlow Backend API is live" });
+});
+
 mongoose.connect(process.env.MONGO_URI)
 .then(() => {
     console.log("MongoDB Connected");

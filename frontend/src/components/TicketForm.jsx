@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const API = "http://localhost:5000/tickets";
+const API = "https://bajaj-test-backend-1r96.onrender.com/tickets";
 
 function TicketForm({ refresh }) {
 
