@@ -1,0 +1,24 @@
+body {
+  font-family: Arial;
+  background: #f4f4f4;
+  padding: 20px;
+}
+
+.board {
+  display: flex;
+  gap: 20px;
+}
+
+.column {
+  background: white;
+  padding: 10px;
+  width: 25%;
+  border-radius: 10px;
+}
+
+.ticket {
+  background: #eee;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
